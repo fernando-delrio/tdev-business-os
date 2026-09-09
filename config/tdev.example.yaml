@@ -1,18 +1,24 @@
+schema_version: 1
+business_id: "tdev"
+
 brand:
   name: "T·DEV"
   positioning: ""
-  tone: ""
+  tone: []
   differentiators: []
+  evidence_refs: []
 
 market:
   primary_regions: []
   target_segments: []
   excluded_segments: []
+  intelligence_refs: []
 
 services:
   offers: []
   maintenance: []
   automation: []
+  non_goals: []
 
 proof:
   portfolio_projects: []
@@ -20,12 +26,22 @@ proof:
   measurable_results: []
 
 commercial:
-  pricing_source: "private/runtime context — do not commit sensitive commercial data here"
+  pricing_source: "private runtime context — never commit sensitive pricing here"
   qualification_rules: []
+  capacity_constraints: []
+  approval_owner: ""
 
 content:
   channels: []
   pillars: []
+  case_study_approval_required: true
 
-# This is intentionally an example/safe schema.
-# Do not commit prospect PII, private conversations, credentials or sensitive pricing decisions.
+governance:
+  implementation_root: "implementations/tdev"
+  required_quality_overlays:
+    - "implementations/tdev/quality-gates/cinematic-intro.md"
+  legal_review_context: "risk identification only; escalate jurisdiction-specific conclusions"
+
+# Safe example schema only. Empty values are UNKNOWN, not permission to infer.
+# Never commit secrets, credentials, prospect/client PII, private conversations,
+# or sensitive pricing and margin decisions.

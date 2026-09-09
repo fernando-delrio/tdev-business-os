@@ -1,41 +1,23 @@
-# CLAUDE.md — T·DEV Business OS
+# Claude Code instructions — T·DEV Business OS
 
-Read `AGENTS.md` first.
+Read [`AGENTS.md`](AGENTS.md) first. It is the portable source of truth for operating rules, evidence language, Business Crew boundaries, and approval requirements.
 
-## Purpose
+## Claude-specific behavior
 
-This repository is an operating system for business and delivery decisions. It is not the T·DEV website source repository and it must not become a dumping ground for client data.
+1. Read only the agent, skill, command, playbook, workflow, gate, and config files relevant to the request.
+2. State the requested artifact and acceptance criteria before substantial edits.
+3. Prefer repository-native Markdown contracts; do not introduce tooling or dependencies without a demonstrated need.
+4. Inspect the current tree and Git diff before editing. Preserve unrelated work.
+5. Validate internal references and confirm that README claims match real files before finishing.
 
-## Before acting
+## Repository boundary
 
-1. Identify whether the request is strategy, research, sales, design, engineering, delivery or a combination.
-2. Load only the relevant agents/skills.
-3. Distinguish evidence from assumptions.
-4. Define the desired business outcome and acceptance criteria.
-5. Prefer a small coordinated workflow over invoking every specialist.
+This repository standardizes business reasoning and delivery decisions. It is not the T·DEV website source and must not become a client codebase or a store for sensitive data.
 
-## Boundaries
+For product work, create a brief, specification, decision, or gate result here; implementation happens in the appropriate product repository after approval.
 
-- Never store secrets, credentials, webhooks or tokens.
-- Never store identifiable prospect/client conversations in the public core.
-- Never treat a legal-risk agent as a lawyer.
-- Never invent competitor, SEO, market or pricing evidence.
-- Never redesign or implement a product merely because a technical solution is available.
-- Keep project-specific execution state outside the reusable core unless it is sanitized and intentionally committed.
+## Default flow
 
-## T·DEV website relationship
+`understand → evidence → diagnose → prioritize → scope → approve → execute elsewhere → verify → learn`
 
-`tdev-business-os` decides and standardizes **how to reason and operate**.
-The `t-dev` repository contains the actual website/product implementation.
-
-For landing work, produce a brief/spec/quality-gate result here, then implement in the product repo. Preserve the current approved design unless the task explicitly authorizes redesign.
-
-## Default workflow
-
-`understand → research → diagnose → prioritize → scope → approve → execute → verify → learn`
-
-Do not skip `verify`.
-
-## Quality standard
-
-Avoid generic AI aesthetics and generic agency advice. Recommendations should be specific enough that another agent can implement them without guessing intent.
+Do not skip `verify`. Do not treat missing evidence as permission to infer certainty.

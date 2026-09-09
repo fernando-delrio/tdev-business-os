@@ -1,32 +1,50 @@
-# /audit
+# Command — `/audit`
 
-Run an evidence-first commercial audit of a business, URL or current T·DEV asset.
+Run an evidence-first commercial audit of a business, URL, or current business asset.
 
-## Route
+This file specifies an operator command; v0.2 does not include a command parser.
 
-### External business / prospect
-Use:
-1. market-research
-2. `business-audit`
-3. seo-local when discoverability matters
-4. ux-conversion when a site/funnel exists
-5. engineering/performance only after commercial problems are established
-6. pricing/sales only after an opportunity is credible
+## Required inputs
 
-### T·DEV landing
-Use:
-1. strategy / positioning
-2. `landing-quality`
-3. creative-direction
-4. seo-local
-5. performance-accessibility
-6. engineering
+- audit subject: business name, URL, or artifact;
+- desired business outcome;
+- market/location when relevant;
+- available evidence and its provenance;
+- current business configuration or explicit statement that it is unavailable.
 
-## Final response
-Synthesize instead of concatenating agent opinions. Return:
-- executive diagnosis
-- evidence vs assumptions
-- top priorities
-- keep / change / do-not-build
-- recommended next action
-- acceptance criteria where implementation follows.
+Optional: known pain, analytics, discovery notes, constraints, and desired depth.
+
+## Routing
+
+The orchestrator selects only the necessary path:
+
+1. `opportunity` establishes the business/customer context and evidence quality.
+2. `business-audit` diagnoses the opportunity.
+3. `growth-experience` joins when a site, funnel, discoverability, or content question exists.
+4. `delivery-risk` joins only for feasibility or delivery-readiness questions.
+
+Use `landing-quality` and `quality-gates/landing.md` when the audited artifact is a commercial landing. Business-specific overlays may add checks but must not alter the generic gate.
+
+## Output
+
+- scoped executive diagnosis;
+- evidence ledger using FACT / INFERENCE / RECOMMENDATION / UNKNOWN;
+- customer journey and opportunity map when supported;
+- prioritized findings;
+- keep / change / do-not-build;
+- discovery questions and material unknowns;
+- recommended next action;
+- acceptance criteria if implementation follows.
+
+Use `templates/evidence-brief.md` when a durable artifact is requested.
+
+## Failure conditions
+
+- No identifiable subject or outcome: request clarification.
+- Insufficient evidence: return unknowns and an evidence-gathering plan, not a confident diagnosis.
+- Private/sensitive input cannot be stored safely: keep it in runtime context and sanitize the artifact.
+- Request crosses pricing, legal, external communication, destructive, or deployment approval boundaries: stop before action.
+
+## Done when
+
+The result passes `quality-gates/recommendation.md`, sources are traceable, uncertainty is visible, and the next decision belongs to a named human or workflow step.
