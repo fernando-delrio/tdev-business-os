@@ -1,0 +1,31 @@
+brand:
+  name: "T·DEV"
+  positioning: ""
+  tone: ""
+  differentiators: []
+
+market:
+  primary_regions: []
+  target_segments: []
+  excluded_segments: []
+
+services:
+  offers: []
+  maintenance: []
+  automation: []
+
+proof:
+  portfolio_projects: []
+  testimonials: []
+  measurable_results: []
+
+commercial:
+  pricing_source: "private/runtime context — do not commit sensitive commercial data here"
+  qualification_rules: []
+
+content:
+  channels: []
+  pillars: []
+
+# This is intentionally an example/safe schema.
+# Do not commit prospect PII, private conversations, credentials or sensitive pricing decisions.
